@@ -1,0 +1,21 @@
+{
+  "name": "indicision-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Ayuth Mangmesap",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:watch\"",
+    "dev:server": "live-server public",
+    "dev:watch": "npx babel src/app.js --out-file=public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react --watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "concurrently": "^4.1.1",
+    "live-server": "^1.2.1"
+  }
+}
