@@ -2,21 +2,46 @@ class IndecisionApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: 'Indicision App',
-			subTitle: 'Put your life in the hands of a computer',
 			options: ['a', 'b', 'c']
 		};
 		this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+		this.handleDeleteOption = this.handleDeleteOption.bind(this);
 		this.handleAddOption = this.handleAddOption.bind(this);
 		this.handlePick = this.handlePick.bind(this);
 	}
 
+	componentDidMount() {
+		try {
+			const json = JSON.parse(localStorage.getItem('options'));
+			this.setState((prevState) => ({
+				options: json
+			}))
+		} catch (e) {
+			
+		}
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.options.length !== this.state.options.length) {
+			const json = JSON.stringify(this.state.options);
+			localStorage.setItem('options', json);
+		}
+	}
+
+	componentWillUnmount() {
+		console.log('componentWillUnmount')
+	}
+
 	handleDeleteOptions() {
-		this.setState(() => {
-			return {
-				options: []
-			};
-		});
+		this.setState(() => ({
+			options: []
+		}));
+	}
+
+	handleDeleteOption(optionToRemove) {
+		this.setState((prevState) => ({
+			options: prevState.options.filter((option) => option !== optionToRemove)
+		}));
 	}
 
 	handleAddOption(option) {
@@ -39,58 +64,55 @@ class IndecisionApp extends React.Component {
 	}
 
 	render() {
+		const subTitle = 'Put your life in the hands of a computer';
+
 		return (
 			<div>
-				<Header title={this.state.title} subTitle={this.state.subTitle} />
+				<Header subTitle={subTitle} />
 				<Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
-				<Options options={this.state.options} handleDeleteOptions={this.handleDeleteOptions} />
+				<Options
+					options={this.state.options}
+					handleDeleteOptions={this.handleDeleteOptions}
+					handleDeleteOption={this.handleDeleteOption} />
 				<AddOption handleAddOption={this.handleAddOption} />
 			</div>
 		)
 	}
 }
 
-class Header extends React.Component {
-	render() {
-		return (
-			<div>
-				<h1>{this.props.title}</h1>
-				<h2>{this.props.subTitle}</h2>
-			</div>
-		)
-	}
-}
+const Header = (props) => (
+	<div>
+		<h1>{props.title}</h1>
+		<h2>{props.subTitle}</h2>
+	</div>
+)
 
-class Action extends React.Component {
-	render() {
-		return (
-			<div>
-				<button disabled={!this.props.hasOptions} onClick={this.props.handlePick}>What should I do?</button>
-			</div>
-		)
-	}
-}
+Header.defaultProps = {
+	title: 'Indicision App'
+};
 
-class Options extends React.Component {
-	render() {
-		return (
-			<div>
-				<button onClick={this.props.handleDeleteOptions}>Remove All</button>
-				{this.props.options.map(option => {
-					return <Option key={option} optionText={option} />
-				})}
-			</div>
-		)
-	}
-}
+const Action = (props) => (
+	<div>
+		<button disabled={!props.hasOptions} onClick={props.handlePick}>What should I do?</button>
+	</div>
+);
 
-class Option extends React.Component {
-	render() {
-		return (
-			<div>{this.props.optionText}</div>
-		)
-	}
-}
+const Options = (props) => (
+	<div>
+		<button onClick={props.handleDeleteOptions}>Remove All</button>
+		{props.options.length === 0 && <p>Please add an option to get started</p>}
+		{props.options.map(option => {
+			return <Option handleDeleteOption={props.handleDeleteOption} key={option} optionText={option} />
+		})}
+	</div>
+)
+
+const Option = (props) => (
+	<div>
+		{props.optionText}
+		<button onClick={(e) => { props.handleDeleteOption(props.optionText); }}>remove</button>
+	</div>
+)
 
 class AddOption extends React.Component {
 	constructor(props) {
@@ -107,11 +129,10 @@ class AddOption extends React.Component {
 		const option = e.target.elements.option.value.trim();
 		const error = this.props.handleAddOption(option);
 
-		this.setState(() => {
-			return {
-				error
-			};
-		});
+		this.setState(() => ({ error }));
+		if (!error) {
+			e.target.elements.option.value = '';
+		}
 	}
 
 	render() {
