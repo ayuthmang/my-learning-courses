@@ -8,14 +8,26 @@
   "scripts": {
     "dev": "concurrently \"npm:dev:server\" \"npm:dev:watch\"",
     "dev:server": "live-server public",
-    "dev:watch": "npx babel src/app.js --out-file=public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react --watch"
+    "dev:watch": "npx babel src/app.js --out-file=public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react --watch",
+    "build:watch": "webpack --mode=development --watch",
+    "webpack:dev": "webpack-dev-server"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
     "concurrently": "^4.1.1",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "validator": "^11.1.0"
   }
 }
