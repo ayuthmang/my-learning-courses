@@ -16,7 +16,7 @@ public class PracticeIoCAndDIPracticeConfig {
     }
 
     @Bean
-    public Coach golfCoach(FortuneService fortuneService) {
-        return new GolfCoach(fortuneService);
+    public Coach golfCoach() {
+        return new GolfCoach(angryFortuneService());
     }
 }
