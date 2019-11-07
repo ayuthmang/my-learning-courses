@@ -1,4 +1,4 @@
-package com.ayuth.springdemo;
+package com.ayuth.springdemo.practice;
 
 import com.ayuth.springdemo.coaches.Coach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
