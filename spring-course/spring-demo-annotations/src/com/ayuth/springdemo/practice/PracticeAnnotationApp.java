@@ -4,7 +4,7 @@ import com.ayuth.springdemo.coaches.Coach;
 import com.ayuth.springdemo.services.HappyFortuneService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AnnotationPracticeApp {
+public class PracticeAnnotationApp {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 

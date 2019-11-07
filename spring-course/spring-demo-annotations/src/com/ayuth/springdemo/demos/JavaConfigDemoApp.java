@@ -1,13 +1,14 @@
-package com.ayuth.springdemo.practice;
+package com.ayuth.springdemo.demos;
 
 import com.ayuth.springdemo.coaches.Coach;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.ayuth.springdemo.config.SportConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class AnnotationDemoApp {
+public class JavaConfigDemoApp {
     public static void main(String[] args) {
 
         // read spring config file
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
 
         // get bean from spring container
         Coach theCoach = context.getBean("tennisCoach", Coach.class);

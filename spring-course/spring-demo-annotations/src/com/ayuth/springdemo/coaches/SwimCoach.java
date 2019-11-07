@@ -10,15 +10,33 @@ import org.springframework.stereotype.Component;
 public class SwimCoach implements Coach {
 
     @Autowired
-    @Qualifier("randomFortuneService")
+//    @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
 
 //    @Value("${swimcoach.fortune}")
 //    private String fortune;
 
+    @Value("${swimcoach.email}")
+    private String email;
+
+    @Value("${swimcoach.team}")
+    private String team;
+
+    public SwimCoach(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
+
     @Override
     public String getDailyWorkout() {
-        return null;
+        return "Swim 1000 meters as a warm up.";
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTeam() {
+        return team;
     }
 
     @Override
