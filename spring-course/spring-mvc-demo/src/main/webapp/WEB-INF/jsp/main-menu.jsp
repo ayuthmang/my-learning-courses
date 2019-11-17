@@ -5,6 +5,8 @@
     <title>Hello</title>
 </head>
 <body>
-    <h1>Spring MVC Demo - Home Page</h1>
+    <h2>Spring MVC Demo - Home Page</h2>
+    <hr>
+    <a href="hello/showForm">Hello World</a>
 </body>
 </html>
