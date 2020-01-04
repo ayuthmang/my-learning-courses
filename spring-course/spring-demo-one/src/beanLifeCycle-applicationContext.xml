@@ -9,7 +9,7 @@
 
 
     <bean id="myCoach" class="com.company.CricketCoach" init-method="init" destroy-method="myDestroy"></bean>
-    <bean id="myFortune" class="com.company.HappyFortuneService" ></bean>
+    <bean id="myFortune" class="com.company.HappyFortuneService"></bean>
 </beans>
 
 
