@@ -10,7 +10,6 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
 // ExpenseForm
-import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
