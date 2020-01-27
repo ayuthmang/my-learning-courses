@@ -2,32 +2,39 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
-// { count: 0, name: '' }
-
 const App = (props) => {
   const [count, setCount] = useState(props.count);
-
-  const increment = () => {
-    setCount(count + 1);
-  }
-
-  const decrement = () => {
-    setCount(count - 1);
-  }
-
-  const reset = () => {
-    setCount(0);
-  }
+  const [text, setText] = useState('');
 
   return (
     <div>
-      <p>The current count is {count}</p>
-      <button onClick={increment}>+1</button>
-      <button onClick={decrement}>-1</button>
-      <button onClick={reset}>reset</button>
+      <p>The current {text || 'count'} is {count}</p>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <button onClick={() => setCount(count - 1)}>-1</button>
+      <button onClick={() => setCount(0)}>reset</button>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
     </div>
   )
 }
+
+// Not recommended to store all of the state in the single object with single call useState.
+// It better to call useState multiple times for different things we end up tracking.
+// const App = (props) => {
+//   const [state, setState] = useState({
+//     count: props.count,
+//     text: ''
+//   })
+
+//   return (
+//     <div>
+//       <p>The current {state.text || 'count'} is {state.count}</p>
+//       <button onClick={() => setState({ ...state, count: state.count + 1 })}>+1</button>
+//       <button onClick={() => setState({ ...state, count: 0 })}>reset</button>
+//       <button onClick={() => setState({ ...state, count: state.count - 1 })}>-1</button>
+//       <input value={state.text} onChange={(e) => setState({ ...state, text: e.target.value})} />
+//     </div>
+//   )
+// }
 
 App.defaultProps = {
   count: 0
