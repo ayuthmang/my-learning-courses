@@ -1,4 +1,4 @@
-package week_2
+package intro
 
 class Person(val name: String, val age: Int)
 

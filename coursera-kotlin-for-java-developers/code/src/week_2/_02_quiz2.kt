@@ -1,4 +1,4 @@
-package week_2.week_2
+package week_2
 
 fun foo(): String {
     println("Calculating foo...")

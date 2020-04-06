@@ -1,4 +1,4 @@
-package week_2.week_2
+package week_2.HelloWorld
 
 fun main(args: Array<String>) {
     // if expression

@@ -1,7 +1,7 @@
-package week_2.week_2
+package week_2
 
 /* Quiz */
-/*fun main() {
+/*fun intro.main() {
     println(listOf('a', 'b', 'c').joinToString(
         separator = "", prefix = "(", postfix = ")"))
 
@@ -19,7 +19,6 @@ fun main() {
     displaySeparator('#')            // ##########
     displaySeparator()                        // **********
 
-
     /*** Functions: named arguments ***/
     displaySeparator(size = 5)
 
@@ -32,11 +31,9 @@ fun main() {
     // UsingSum.java, providing values for all arguments
     // sum(1, 2, 3)
 
-
     // @JvmOverloads annotation
     // @JvmOverloads
     fun sum(a: Int = 0, b: Int = 0, c: Int = 0) = a + b + c
-
 
     // UsingSum.java
     sum(1)

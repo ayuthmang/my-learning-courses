@@ -1,4 +1,4 @@
-package week_2.week_2
+package week_2
 
 //fun max(a: Int, b: Int): Int {
 //    return if (a > b) a else b
@@ -44,7 +44,7 @@ fun displayMax(a: Int, b: Int) {
 //  import intro.Util
 
 //  public class JavaUsage {
-//      public static void main(String[] args) {
+//      public static void intro.main(String[] args) {
 //          int i = Util.foo();
 //      }
 //  }

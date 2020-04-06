@@ -1,35 +1,35 @@
-package week_2
+package intro
 
 enum class Color { BLUE, ORANGE, RED }
 
-//fun updateWeather(degrees: Int) {
+//fun intro.updateWeather(degrees: Int) {
 //    val description: String
-//    val color: Color
+//    val color: intro.Color
 //    if (degrees < 10) {
 //        description = "cold"
-//        color = Color.BLUE
+//        color = intro.Color.BLUE
 //    } else if (degrees < 25) {
 //        description = "mild"
-//        color = Color.ORANGE
+//        color = intro.Color.ORANGE
 //    } else {
 //        description = "hot"
-//        color = Color.RED
+//        color = intro.Color.RED
 //    }
 //}
 
-//fun updateWeather(degrees: Int) {
-//    val (description: String, color: week_2.Color) =
+//fun intro.updateWeather(degrees: Int) {
+//    val (description: String, color: intro.Color) =
 //        if (degrees < 10) {
-//            Pair("cold", Color.BLUE)
+//            Pair("cold", intro.Color.BLUE)
 //        } else if (degrees < 25) {
-//            Pair("mild", Color.ORANGE)
+//            Pair("mild", intro.Color.ORANGE)
 //        } else {
-//            Pair("hot", Color.RED)
+//            Pair("hot", intro.Color.RED)
 //        }
 //}
 
 fun updateWeather(degrees: Int) {
-    val (description: String, color: week_2.Color) =
+    val (description: String, color: Color) =
         when {
             degrees < 10 -> "cold" to Color.BLUE
             degrees < 25 -> "mild" to Color.ORANGE
