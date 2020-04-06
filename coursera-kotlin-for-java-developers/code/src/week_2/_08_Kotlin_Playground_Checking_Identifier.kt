@@ -7,24 +7,16 @@ package week_2
  ***/
 
 fun isValidIdentifier(s: String): Boolean {
-    // check if not an empty string
-    if (s.isEmpty())
+    if (s.isEmpty() || s[0].isDigit())
         return false
 
-    // check first letter that starts with a letter or underscore and
-    val firstLetter = s.first().toString()
-    if (firstLetter !in "a".."z" && firstLetter !in "A".."Z" && firstLetter !in "_") {
-        return false
-    }
+    fun isValidCharacter(c: Char) =
+        c == '_' || c.isLetterOrDigit()
 
-    // the rest consists of only letters, digits and underscores
-    val theRest = s.slice(1 until s.length).split("")
-    for (c in theRest) {
-        if (c !in "a".."z" && c !in "A".."Z" && c !in "_" && c !in "0".."9") {
+    for (c in s) {
+        if (!isValidCharacter(c))
             return false
-        }
     }
-
     return true
 }
 
