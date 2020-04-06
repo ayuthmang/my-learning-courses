@@ -13,6 +13,6 @@ fun main() {
     val mutableList = mutableListOf("Java")
     mutableList.add("Kotlin")
 
-    val readOnlyList = listOf("Java")
+    // val readOnlyList = listOf("Java")
     // readOnlyList.add("Kotlin") // Read-only list lacks mutating methods
 }

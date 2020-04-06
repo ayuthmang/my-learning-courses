@@ -50,3 +50,6 @@ fun main() {
     // public static final int sum()
 }
 
+// Test @JvmOverloads
+@JvmOverloads
+fun sum(a: Int = 0, b: Int = 0, c: Int = 0) = a + b + c
