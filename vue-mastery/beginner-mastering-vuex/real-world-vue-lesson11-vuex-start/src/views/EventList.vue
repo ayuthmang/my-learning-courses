@@ -11,21 +11,21 @@ import EventService from '@/services/EventService.js'
 
 export default {
   components: {
-    EventCard,
+    EventCard
   },
   data() {
     return {
-      events: [],
+      events: []
     }
   },
   created() {
     EventService.getEvents()
-      .then((response) => {
+      .then(response => {
         this.events = response.data
       })
-      .catch((error) => {
+      .catch(error => {
         console.log('There was an error:', error.response)
       })
-  },
+  }
 }
 </script>
