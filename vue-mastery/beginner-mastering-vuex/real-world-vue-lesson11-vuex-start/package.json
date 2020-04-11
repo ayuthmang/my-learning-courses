@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "db": "json-server db.json"
+    "db": "json-server --watch db.json"
   },
   "dependencies": {
     "axios": "^0.18.0",

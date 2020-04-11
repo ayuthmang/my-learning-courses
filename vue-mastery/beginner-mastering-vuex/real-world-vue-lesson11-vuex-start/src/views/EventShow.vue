@@ -42,10 +42,8 @@ export default {
   },
   created() {
     this.fetchEvent(this.id)
-    console.log(mapActions(['event/fetchEvent']))
   },
   methods: mapActions('event', ['fetchEvent'])
-  // methods: mapActions('event', ['fetchEvent'])
 }
 </script>
 <style scoped>

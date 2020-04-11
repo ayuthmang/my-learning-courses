@@ -55,6 +55,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker'
+import { mapActions } from 'vuex'
 export default {
   components: {
     Datepicker
@@ -81,9 +82,7 @@ export default {
           })
           this.event = this.createFreshEventObject()
         })
-        .catch(() => {
-          console.log('There was a problem creating your event')
-        })
+        .catch(() => {})
     },
     createFreshEventObject() {
       const user = this.$store.state.user.user
@@ -100,7 +99,8 @@ export default {
         time: '',
         attendees: []
       }
-    }
+    },
+    ...mapActions('notification', ['add'])
   }
 }
 </script>
