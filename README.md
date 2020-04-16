@@ -1,3 +1,3 @@
 # Courses
 
-All about coding courses.
+All about my coding courses.
