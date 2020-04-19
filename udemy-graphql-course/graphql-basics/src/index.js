@@ -30,18 +30,21 @@ const posts = [
     title: "Learn GraphQL",
     body: "Find some place to learn GraphQL.",
     published: true,
+    author: "1",
   },
   {
     id: 2,
     title: "Learn JavaScript",
     body: "Find some place to learn JavaScript.",
     published: true,
+    author: "1",
   },
   {
     id: 3,
     title: "Learn How to Love People",
     body: "Give love to everyone.",
     published: true,
+    author: "2",
   },
 ];
 
@@ -58,6 +61,7 @@ const typeDefs = `
     name: String!
     email: String
     age: Int
+    posts: [Post!]!
   }
 
   type Post {
@@ -65,6 +69,7 @@ const typeDefs = `
     title: String!
     body: String!
     published: Boolean!
+    author: User!
   }
 `;
 
@@ -102,6 +107,19 @@ const resolvers = {
       });
     },
   },
+  Post: {
+    author(parent, args, ctx, info) {
+      console.log(arguments)
+      return users.find((user) => {
+        return user.id === parent.author;
+      });
+    },
+  },
+  User: {
+    posts(parent, args, ctx, info) {
+      return posts.filter(post => post.author === parent.id)
+    }
+  }
 };
 
 const server = new GraphQLServer({
