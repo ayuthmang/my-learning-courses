@@ -62,7 +62,3 @@ fun foo(list1: List<Int?>, list2: List<Int>?) {
 // val i: Int? =
 // val j: Int? =  // Compiler error: Type mismatch: inferred type is Int? but Int was expected
 // list2.get(0)
-
-fun main() {
-    foo()
-}
