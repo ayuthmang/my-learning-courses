@@ -10,10 +10,10 @@ fun sum(list: List<Int>): Int {
     return result
 }
 
-fun main() {
-    val sum = sum(listOf(1, 2, 3))
+fun main(args: Array<String>) {
+    // val sum = sum(listOf(1, 2, 3))
     // val sum = listOf(1, 2, 3).sum()  // ans
-    println(sum)    // 6
+    // println(sum)    // 6
 }
 
 // Answer
