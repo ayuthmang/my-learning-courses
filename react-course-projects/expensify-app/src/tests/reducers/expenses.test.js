@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 import expenses from '../fixtures/expenses';
 import expensesReducer from '../../reducers/expenses';

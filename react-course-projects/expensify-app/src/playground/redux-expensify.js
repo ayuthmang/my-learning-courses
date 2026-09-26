@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 // ADD_EXPENSE
 const addExpense = (
